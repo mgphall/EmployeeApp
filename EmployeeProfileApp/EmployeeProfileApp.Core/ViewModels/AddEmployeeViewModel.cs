@@ -108,7 +108,7 @@ namespace EmployeeProfileApp.Core.ViewModels
                 var saveSuccess = await EmployeeProvider.AddEmployee(tempEmployee);
 
                 //TODO move to resources 
-                Message = saveSuccess == 1 ? "Employee Details saved" : "Unable able to save Employee Details";
+                Message = saveSuccess == 1 ? "Employee details saved" : "Unable able to save employee details";
                 SaveButtonEnabled = true;
             }
             else
