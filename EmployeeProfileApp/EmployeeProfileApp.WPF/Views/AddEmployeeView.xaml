@@ -38,13 +38,13 @@
             <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource Content}" Text="{Binding EmployeeDetails.LastName, Mode=TwoWay}"/>
             <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource Content}" Text="{Binding EmployeeDetails.Salary, Mode=TwoWay}"/>
 
-            <Slider Grid.Column="1" Grid.Row="3"  Maximum="{StaticResource MaxHours}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Value="{Binding EmployeeDetails.HoursPerDay, Mode=TwoWay}" />
-            <Slider Grid.Column="1" Grid.Row="4"  Maximum="{StaticResource MaxDays}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"  Value="{Binding EmployeeDetails.DaysPerWeek, Mode=TwoWay}"/>
-            <Slider Grid.Column="1" Grid.Row="5"  Maximum="{StaticResource MaxWeeks}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Value="{Binding EmployeeDetails.WeeksPerYear, Mode=TwoWay}"/>
+            <Slider Grid.Column="1" Grid.Row="3"  Maximum="{StaticResource MaxHours}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Value="{Binding EmployeeDetails.HoursPerDay, Mode=TwoWay}" TickPlacement="Both" />
+            <Slider Grid.Column="1" Grid.Row="4"  Maximum="{StaticResource MaxDays}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"  Value="{Binding EmployeeDetails.DaysPerWeek, Mode=TwoWay}" TickPlacement="Both"/>
+            <Slider Grid.Column="1" Grid.Row="5"  Maximum="{StaticResource MaxWeeks}"  AutoToolTipPlacement="TopLeft"  AutoToolTipPrecision="0" Value="{Binding EmployeeDetails.WeeksPerYear, Mode=TwoWay}" TickPlacement="Both"/>
 
             <Button Grid.Column="0" Grid.Row="6" Content="{x:Static resx:Resources.Back}" Style="{StaticResource ButtonStyle}" Command="{Binding BackCommand}" />
 
-            <Button Grid.Column="1" Grid.Row="6" Content="{x:Static resx:Resources.SaveEmployee}"  Style="{StaticResource ButtonStyle}" IsEnabled="{Binding SaveButtonEnabled}"   Command="{Binding SaveCommand}" CommandParameter="{Binding EmployeeDetails}"  />
+            <Button Grid.Column="1" Grid.Row="6" Content="{x:Static resx:Resources.SaveEmployee}"  Style="{StaticResource ButtonStyle}" IsEnabled="{Binding SaveButtonEnabled, Mode=TwoWay}"   Command="{Binding SaveCommand}" CommandParameter="{Binding EmployeeDetails}"  />
 
             <controls:SnackBar Grid.Column="0"  Grid.Row="6" Grid.ColumnSpan="2" Message="{Binding Message}" />
         </Grid>

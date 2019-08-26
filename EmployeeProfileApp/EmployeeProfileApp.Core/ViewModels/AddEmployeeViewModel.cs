@@ -1,4 +1,4 @@
-﻿using System;
+﻿using MvvmCross.Base;
 
 namespace EmployeeProfileApp.Core.ViewModels
 {
@@ -23,7 +23,7 @@ namespace EmployeeProfileApp.Core.ViewModels
         /// <summary>
         /// The save button enabled
         /// </summary>
-        private bool saveButtonEnabled = true;
+        private bool saveButtonEnabled;
 
         /// <summary>
         /// The message
@@ -37,6 +37,7 @@ namespace EmployeeProfileApp.Core.ViewModels
         public AddEmployeeViewModel(IEmployeeProvider employeeProvider)
         {
             EmployeeProvider = employeeProvider;
+            SaveButtonEnabled = true;
         }
 
         /// <summary>
@@ -88,9 +89,7 @@ namespace EmployeeProfileApp.Core.ViewModels
         /// <returns>a Task</returns>
         private async Task SaveEmployee(IEmployeeProfile profile)
         {
-            SaveButtonEnabled = false;
-
-            var tempPerson = new EmployeeProfile
+            var tempEmployee = new EmployeeProfile
             {
                 FirstName = profile.FirstName,
                 LastName = profile.LastName,
@@ -101,13 +100,16 @@ namespace EmployeeProfileApp.Core.ViewModels
             };
 
             var validator = new EmployeeProfileValidator();
-            var results = validator.Validate(tempPerson);
+            var results = validator.Validate(tempEmployee);
 
             if (results.IsValid)
             {
-                var saveSuccess = await EmployeeProvider.AddEmployee(tempPerson);
+                SaveButtonEnabled = false;
+                var saveSuccess = await EmployeeProvider.AddEmployee(tempEmployee);
 
+                //TODO move to resources 
                 Message = saveSuccess == 1 ? "Employee Details saved" : "Unable able to save Employee Details";
+                SaveButtonEnabled = true;
             }
             else
             {
@@ -116,8 +118,6 @@ namespace EmployeeProfileApp.Core.ViewModels
                     Message = error.ErrorMessage;
                 }
             }
-
-            SaveButtonEnabled = true;
             Message = string.Empty;
         }
     }

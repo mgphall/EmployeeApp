@@ -68,7 +68,7 @@ namespace EmployeeProfileApp.Core.ViewModels
         /// <summary>
         /// Gets or sets the employee provider.
         /// </summary>
-        private IEmployeeProvider EmployeeProvider { get; set; }
+        private IEmployeeProvider EmployeeProvider { get; }
 
         /// <summary>
         /// Gets the random employee.
