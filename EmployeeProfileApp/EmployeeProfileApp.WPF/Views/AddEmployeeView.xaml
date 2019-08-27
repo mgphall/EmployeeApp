@@ -34,9 +34,10 @@
             <TextBlock Grid.Row="4" Style="{StaticResource Title}" Text="{x:Static resx:Resources.DaysPerWeek}"/>
             <TextBlock Grid.Row="5" Style="{StaticResource Title}" Text="{x:Static resx:Resources.WeeksPerYear}"/>
 
-            <TextBox Grid.Column="1" Style="{StaticResource Content}"  Text="{Binding EmployeeDetails.FirstName, Mode=TwoWay}" />
-            <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource Content}" Text="{Binding EmployeeDetails.LastName, Mode=TwoWay}"/>
-            <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource Content}" Text="{Binding EmployeeDetails.Salary, Mode=TwoWay}"/>
+            <!--MaxLength Allow the user to over type then fix if needed -->
+            <TextBox Grid.Column="1" Style="{StaticResource Content}" MaxLength="{StaticResource MaxLength}" Text="{Binding EmployeeDetails.FirstName, Mode=TwoWay}" />
+            <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource Content}" MaxLength="{StaticResource MaxLength}" Text="{Binding EmployeeDetails.LastName, Mode=TwoWay}" />
+            <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource Content}" MaxLength="{StaticResource MaxSalaryLength}"  Text="{Binding EmployeeDetails.Salary, Mode=TwoWay}"/>
 
             <Slider Grid.Column="1" Grid.Row="3"  Maximum="{StaticResource MaxHours}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" Value="{Binding EmployeeDetails.HoursPerDay, Mode=TwoWay}" TickPlacement="Both" />
             <Slider Grid.Column="1" Grid.Row="4"  Maximum="{StaticResource MaxDays}"  AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0"  Value="{Binding EmployeeDetails.DaysPerWeek, Mode=TwoWay}" TickPlacement="Both"/>

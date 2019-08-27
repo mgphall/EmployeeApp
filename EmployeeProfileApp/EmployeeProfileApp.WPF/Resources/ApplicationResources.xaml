@@ -5,7 +5,10 @@
     <system:Double x:Key="MaxHours">24</system:Double>
     <system:Double x:Key="MaxDays">7</system:Double>
     <system:Double x:Key="MaxWeeks">52</system:Double>
+
     <Thickness x:Key="DefaultMargin">16</Thickness>
+    <system:Int32 x:Key="MaxLength">50</system:Int32>
+    <system:Int32 x:Key="MaxSalaryLength">13</system:Int32>
 
     <Style x:Key="Normal" TargetType="{x:Type TextBlock}" >
         <Setter Property="FontSize"  Value="14" />
